@@ -17,7 +17,6 @@
 		A717B45414C582DB004B122E /* CExViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A717B45214C582DB004B122E /* CExViewController_iPhone.xib */; };
 		A717B45714C582DB004B122E /* CExViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A717B45514C582DB004B122E /* CExViewController_iPad.xib */; };
 		A717B46114C58320004B122E /* CExQuartzCoreOrganizerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A717B45E14C58320004B122E /* CExQuartzCoreOrganizerController.m */; };
-		A717B46214C58320004B122E /* CExQuartzCoreOrganizerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A717B45F14C58320004B122E /* CExQuartzCoreOrganizerController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		A717B45614C582DB004B122E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CExViewController_iPad.xib; sourceTree = "<group>"; };
 		A717B45D14C58320004B122E /* CExQuartzCoreOrganizerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CExQuartzCoreOrganizerController.h; sourceTree = "<group>"; };
 		A717B45E14C58320004B122E /* CExQuartzCoreOrganizerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CExQuartzCoreOrganizerController.m; sourceTree = "<group>"; };
-		A717B46014C58320004B122E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CExQuartzCoreOrganizerController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +84,6 @@
 			children = (
 				A717B45D14C58320004B122E /* CExQuartzCoreOrganizerController.h */,
 				A717B45E14C58320004B122E /* CExQuartzCoreOrganizerController.m */,
-				A717B45F14C58320004B122E /* CExQuartzCoreOrganizerController.xib */,
 				A717B44C14C582DB004B122E /* CExAppDelegate.h */,
 				A717B44D14C582DB004B122E /* CExAppDelegate.m */,
 				A717B44F14C582DB004B122E /* CExViewController.h */,
@@ -162,7 +159,6 @@
 				A717B44814C582DB004B122E /* InfoPlist.strings in Resources */,
 				A717B45414C582DB004B122E /* CExViewController_iPhone.xib in Resources */,
 				A717B45714C582DB004B122E /* CExViewController_iPad.xib in Resources */,
-				A717B46214C58320004B122E /* CExQuartzCoreOrganizerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,14 +201,6 @@
 				A717B45614C582DB004B122E /* en */,
 			);
 			name = CExViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		A717B45F14C58320004B122E /* CExQuartzCoreOrganizerController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A717B46014C58320004B122E /* en */,
-			);
-			name = CExQuartzCoreOrganizerController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -304,6 +292,7 @@
 				A717B45C14C582DB004B122E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

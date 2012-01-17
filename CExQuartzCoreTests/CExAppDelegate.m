@@ -7,8 +7,7 @@
 //
 
 #import "CExAppDelegate.h"
-
-#import "CExViewController.h"
+#import "CExQuartzCoreOrganizerController.h"
 
 @implementation CExAppDelegate
 
@@ -25,11 +24,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    
     // Override point for customization after application launch.
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[[CExViewController alloc] initWithNibName:@"CExViewController_iPhone" bundle:nil] autorelease];
+        self.viewController = [[[CExQuartzCoreOrganizerController alloc] initWithNibName:@"CExQuartzCoreOrganizerController_iPhone" bundle:nil] autorelease];
     } else {
-        self.viewController = [[[CExViewController alloc] initWithNibName:@"CExViewController_iPad" bundle:nil] autorelease];
+        self.viewController = [[[CExQuartzCoreOrganizerController alloc] initWithNibName:@"CExQuartzCoreOrganizerController_iPad" bundle:nil] autorelease];
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
