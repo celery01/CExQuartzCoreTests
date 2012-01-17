@@ -12,3 +12,16 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+
+enum CExQuartzCoreCategory {
+    CExQuartzCoreCAAnimation = 0,
+    
+    CExQuartzCoreTestsCount
+};
+
+enum CExCAAnimation {
+    CExCABasicAnimation = 0,
+    
+    CExCAAnimationTestsCount
+};
