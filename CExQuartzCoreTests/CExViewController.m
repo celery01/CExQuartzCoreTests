@@ -7,8 +7,18 @@
 //
 
 #import "CExViewController.h"
+#import "CExQuartzCoreOrganizerController.h"
 
 @implementation CExViewController
+
++ (void) load
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    [CExQuartzCoreOrganizerController AddCategory:NSStringFromClass([self class])];
+    
+    [pool release];pool=nil;
+}
 
 - (void)didReceiveMemoryWarning
 {

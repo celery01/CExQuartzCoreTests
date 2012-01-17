@@ -10,11 +10,35 @@
 
 @implementation CExQuartzCoreOrganizerController
 
++ (NSMutableArray *) sharedCategories
+{
+    static dispatch_once_t onceToken;
+    
+    static NSMutableArray *gCategories = nil;
+    
+    dispatch_once(&onceToken, ^{
+        gCategories = [[NSMutableArray alloc] init];
+    });
+    
+    return gCategories;
+}
+
+//+ (NSArray*) sharedTests
+//{
+//    static dispatch_once_t
+//}
+
++ (void) AddCategory:(NSString *) theCategory
+{
+    [[CExQuartzCoreOrganizerController sharedCategories] addObject:theCategory];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -78,23 +102,23 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return CExQuartzCoreTestsCount;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     
-    NSInteger count = 0;
+    NSInteger count = [CExQuartzCoreOrganizerController sharedCategories].count;
     
-    switch (section) {
-        case CExQuartzCoreCAAnimation:
-            count = CExCAAnimationTestsCount;
-            break;
-            
-        default:
-            break;
-    }
+//    switch (section) {
+//        case CExQuartzCoreCAAnimation:
+//            count = CExCAAnimationTestsCount;
+//            break;
+//            
+//        default:
+//            break;
+//    }
     
     return count;
 }
@@ -110,60 +134,40 @@
     
     // Configure the cell...
     
+    cell.textLabel.text = [[CExQuartzCoreOrganizerController sharedCategories] objectAtIndex:indexPath.row];
+    
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    
+    NSString *classString = [[CExQuartzCoreOrganizerController sharedCategories] objectAtIndex:indexPath.row];
+    
+    const char *cString = [classString cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    id classObject = objc_getClass(cString);
+    
+    id theViewControllerInstance = class_createInstance(classObject, 0);
+
+    NSString *nibName = nil;
+    id a = nil;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        nibName = [classString stringByAppendingString:@"_iPhone"];
+    }
+    else {
+        nibName = [classString stringByAppendingString:@"_iPad"];
+    }
+    
+    a = [theViewControllerInstance initWithNibName:nibName bundle:nil];
+
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:a animated:YES];
+    [a release];
+     
 }
 
 @end

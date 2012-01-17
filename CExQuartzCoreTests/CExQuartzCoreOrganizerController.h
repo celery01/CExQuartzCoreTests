@@ -10,4 +10,6 @@
 
 @interface CExQuartzCoreOrganizerController : UITableViewController
 
++ (void) AddCategory:(NSString *) theCategory;
+
 @end

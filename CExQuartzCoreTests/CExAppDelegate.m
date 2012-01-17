@@ -32,7 +32,12 @@
     } else {
         self.viewController = [[[CExQuartzCoreOrganizerController alloc] initWithNibName:@"CExQuartzCoreOrganizerController_iPad" bundle:nil] autorelease];
     }
-    self.window.rootViewController = self.viewController;
+
+    UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    
+    self.window.rootViewController = naviController;
+
+    [naviController release];naviController=nil;
     [self.window makeKeyAndVisible];
     return YES;
 }
