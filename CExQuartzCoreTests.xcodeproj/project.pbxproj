@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1D95A38F14C5B5EC00F738D0 /* CExQuartzCoreOrganizerController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D95A38B14C5B5EC00F738D0 /* CExQuartzCoreOrganizerController_iPad.xib */; };
 		1D95A39014C5B5EC00F738D0 /* CExQuartzCoreOrganizerController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D95A38D14C5B5EC00F738D0 /* CExQuartzCoreOrganizerController_iPhone.xib */; };
+		A712406614C6B34300C8D17A /* CExTransformerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A712406114C6B34300C8D17A /* CExTransformerViewController.m */; };
+		A712406714C6B34300C8D17A /* CExTransformerViewController _iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A712406214C6B34300C8D17A /* CExTransformerViewController _iPhone.xib */; };
+		A712406814C6B34300C8D17A /* CExTransformerViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A712406414C6B34300C8D17A /* CExTransformerViewController_iPad.xib */; };
+		A712406B14C6B4E700C8D17A /* TransformerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A712406A14C6B4E700C8D17A /* TransformerView.m */; };
+		A712406D14C6B9EA00C8D17A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A712406C14C6B9EA00C8D17A /* QuartzCore.framework */; };
 		A717B43E14C582DB004B122E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A717B43D14C582DB004B122E /* UIKit.framework */; };
 		A717B44014C582DB004B122E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A717B43F14C582DB004B122E /* Foundation.framework */; };
 		A717B44214C582DB004B122E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A717B44114C582DB004B122E /* CoreGraphics.framework */; };
@@ -24,6 +29,13 @@
 /* Begin PBXFileReference section */
 		1D95A38C14C5B5EC00F738D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CExQuartzCoreOrganizerController_iPad.xib; sourceTree = "<group>"; };
 		1D95A38E14C5B5EC00F738D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CExQuartzCoreOrganizerController_iPhone.xib; sourceTree = "<group>"; };
+		A712406014C6B34300C8D17A /* CExTransformerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CExTransformerViewController.h; sourceTree = "<group>"; };
+		A712406114C6B34300C8D17A /* CExTransformerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CExTransformerViewController.m; sourceTree = "<group>"; };
+		A712406314C6B34300C8D17A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/CExTransformerViewController _iPhone.xib"; sourceTree = "<group>"; };
+		A712406514C6B34300C8D17A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CExTransformerViewController_iPad.xib; sourceTree = "<group>"; };
+		A712406914C6B4E700C8D17A /* TransformerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformerView.h; sourceTree = "<group>"; };
+		A712406A14C6B4E700C8D17A /* TransformerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformerView.m; sourceTree = "<group>"; };
+		A712406C14C6B9EA00C8D17A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A717B43914C582DB004B122E /* CExQuartzCoreTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CExQuartzCoreTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A717B43D14C582DB004B122E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A717B43F14C582DB004B122E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A712406D14C6B9EA00C8D17A /* QuartzCore.framework in Frameworks */,
 				A717B43E14C582DB004B122E /* UIKit.framework in Frameworks */,
 				A717B44014C582DB004B122E /* Foundation.framework in Frameworks */,
 				A717B44214C582DB004B122E /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +69,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A712405714C69EE000C8D17A /* CExViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A717B44F14C582DB004B122E /* CExViewController.h */,
+				A717B45014C582DB004B122E /* CExViewController.m */,
+				A717B45214C582DB004B122E /* CExViewController_iPhone.xib */,
+				A717B45514C582DB004B122E /* CExViewController_iPad.xib */,
+			);
+			name = CExViewController;
+			sourceTree = "<group>";
+		};
+		A712405914C69F1200C8D17A /* CExTransformerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A712406914C6B4E700C8D17A /* TransformerView.h */,
+				A712406A14C6B4E700C8D17A /* TransformerView.m */,
+				A712406014C6B34300C8D17A /* CExTransformerViewController.h */,
+				A712406114C6B34300C8D17A /* CExTransformerViewController.m */,
+				A712406214C6B34300C8D17A /* CExTransformerViewController _iPhone.xib */,
+				A712406414C6B34300C8D17A /* CExTransformerViewController_iPad.xib */,
+			);
+			name = CExTransformerViewController;
+			sourceTree = "<group>";
+		};
 		A717B42E14C582DB004B122E = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +113,7 @@
 		A717B43C14C582DB004B122E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A712406C14C6B9EA00C8D17A /* QuartzCore.framework */,
 				A717B43D14C582DB004B122E /* UIKit.framework */,
 				A717B43F14C582DB004B122E /* Foundation.framework */,
 				A717B44114C582DB004B122E /* CoreGraphics.framework */,
@@ -92,10 +130,8 @@
 				1D95A38D14C5B5EC00F738D0 /* CExQuartzCoreOrganizerController_iPhone.xib */,
 				A717B44C14C582DB004B122E /* CExAppDelegate.h */,
 				A717B44D14C582DB004B122E /* CExAppDelegate.m */,
-				A717B44F14C582DB004B122E /* CExViewController.h */,
-				A717B45014C582DB004B122E /* CExViewController.m */,
-				A717B45214C582DB004B122E /* CExViewController_iPhone.xib */,
-				A717B45514C582DB004B122E /* CExViewController_iPad.xib */,
+				A712405714C69EE000C8D17A /* CExViewController */,
+				A712405914C69F1200C8D17A /* CExTransformerViewController */,
 				A717B44414C582DB004B122E /* Supporting Files */,
 			);
 			path = CExQuartzCoreTests;
@@ -167,6 +203,8 @@
 				A717B45714C582DB004B122E /* CExViewController_iPad.xib in Resources */,
 				1D95A38F14C5B5EC00F738D0 /* CExQuartzCoreOrganizerController_iPad.xib in Resources */,
 				1D95A39014C5B5EC00F738D0 /* CExQuartzCoreOrganizerController_iPhone.xib in Resources */,
+				A712406714C6B34300C8D17A /* CExTransformerViewController _iPhone.xib in Resources */,
+				A712406814C6B34300C8D17A /* CExTransformerViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +219,8 @@
 				A717B44E14C582DB004B122E /* CExAppDelegate.m in Sources */,
 				A717B45114C582DB004B122E /* CExViewController.m in Sources */,
 				A717B46114C58320004B122E /* CExQuartzCoreOrganizerController.m in Sources */,
+				A712406614C6B34300C8D17A /* CExTransformerViewController.m in Sources */,
+				A712406B14C6B4E700C8D17A /* TransformerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +241,22 @@
 				1D95A38E14C5B5EC00F738D0 /* en */,
 			);
 			name = CExQuartzCoreOrganizerController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		A712406214C6B34300C8D17A /* CExTransformerViewController _iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A712406314C6B34300C8D17A /* en */,
+			);
+			name = "CExTransformerViewController _iPhone.xib";
+			sourceTree = "<group>";
+		};
+		A712406414C6B34300C8D17A /* CExTransformerViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A712406514C6B34300C8D17A /* en */,
+			);
+			name = CExTransformerViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 		A717B44614C582DB004B122E /* InfoPlist.strings */ = {

@@ -13,3 +13,12 @@
 + (void) AddCategory:(NSString *) theCategory;
 
 @end
+
+
+@interface CExQuartzCoreOrganizerController(RegisteryCategory)
+
++ (NSMutableArray *) sharedCategories;
+
++ (void) AddCategory:(NSString *) theCategory;
+
+@end

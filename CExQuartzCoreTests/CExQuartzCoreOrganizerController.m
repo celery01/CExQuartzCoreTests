@@ -8,7 +8,11 @@
 
 #import "CExQuartzCoreOrganizerController.h"
 
+
+
 @implementation CExQuartzCoreOrganizerController
+
+#pragma mark - RegisteryCategory
 
 + (NSMutableArray *) sharedCategories
 {
@@ -23,15 +27,12 @@
     return gCategories;
 }
 
-//+ (NSArray*) sharedTests
-//{
-//    static dispatch_once_t
-//}
-
 + (void) AddCategory:(NSString *) theCategory
 {
     [[CExQuartzCoreOrganizerController sharedCategories] addObject:theCategory];
 }
+
+#pragma mark -
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -111,15 +112,6 @@
     
     NSInteger count = [CExQuartzCoreOrganizerController sharedCategories].count;
     
-//    switch (section) {
-//        case CExQuartzCoreCAAnimation:
-//            count = CExCAAnimationTestsCount;
-//            break;
-//            
-//        default:
-//            break;
-//    }
-    
     return count;
 }
 
@@ -131,9 +123,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    // Configure the cell...
-    
+        
     cell.textLabel.text = [[CExQuartzCoreOrganizerController sharedCategories] objectAtIndex:indexPath.row];
     
     return cell;
@@ -147,26 +137,41 @@
     
     NSString *classString = [[CExQuartzCoreOrganizerController sharedCategories] objectAtIndex:indexPath.row];
     
-    const char *cString = [classString cStringUsingEncoding:NSUTF8StringEncoding];
+/*    const char *cString = [classString cStringUsingEncoding:NSUTF8StringEncoding];
     
     id classObject = objc_getClass(cString);
     
     id theViewControllerInstance = class_createInstance(classObject, 0);
-
-    NSString *nibName = nil;
-    id a = nil;
+*/
+    
+    NSString *xibName = nil;
+    NSString *newXibName = nil;
+    //
+    //  checking whether the resource exists, if not using name .xib 
+    //
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        nibName = [classString stringByAppendingString:@"_iPhone"];
+        newXibName = [classString stringByAppendingString:@"_iPhone"];
     }
     else {
-        nibName = [classString stringByAppendingString:@"_iPad"];
+        newXibName = [classString stringByAppendingString:@"_iPad"];
     }
     
-    a = [theViewControllerInstance initWithNibName:nibName bundle:nil];
+    NSString *resourcePath = [mainBundle pathForResource:newXibName ofType:@"nib"];
+    
+    if(!resourcePath) {
+        xibName = classString;
+    }
+    else {
+        xibName = newXibName;
+    }
+
+    id theViewController = [[NSClassFromString(classString) alloc] initWithNibName:xibName bundle:nil];
 
     // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:a animated:YES];
-    [a release];
+    [self.navigationController pushViewController:theViewController animated:YES];
+    [theViewController release];
      
 }
 
