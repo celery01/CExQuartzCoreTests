@@ -68,22 +68,35 @@
 {
     [super viewDidAppear:animated];
     
-    self.view.layer.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5].CGColor;
+    
+    [NSTimer scheduledTimerWithTimeInterval:3
+                                     target:self
+                                   selector:@selector(backgroundAnim:)
+                                   userInfo:nil
+                                    repeats:NO];
+        
+}
 
+
+- (void)backgroundAnim:(NSTimer *) theTimer 
+{
+    self.view.layer.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5].CGColor;
+    
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
     
     animation.delegate = self;
     [animation setDuration:10.0];
     
     CGColorRef red = [UIColor colorWithRed:1 green:0 blue:1 alpha:1].CGColor;
-    CGColorRef greeen = [UIColor colorWithRed:0 green:1 blue:0 alpha:1].CGColor;
+    CGColorRef green = [UIColor colorWithRed:0 green:1 blue:0 alpha:1].CGColor;
     
     [animation setFromValue:(id)red];
-    [animation setToValue:(id)greeen];
+    [animation setToValue:(id)green];
+    animation.autoreverses = YES;
+    animation.fillMode = kCAFillModeForwards;
     
     
     [self.view.layer addAnimation:animation forKey:@"backgroundAnima"];
-    
 }
 
 - (void)animationDidStart:(CAAnimation *)theAnimation
@@ -94,7 +107,9 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    NSLog(@"%s",__func__);    
+    if(flag) {
+        NSLog(@"%@",[UIColor colorWithCGColor:self.view.layer.backgroundColor]);
+    }
 }
 
 
